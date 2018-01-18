@@ -7,23 +7,29 @@
     "test": "test"
   },
   "files": [
-    "src/ac.js"
+    "src/AsyncCache.js"
   ],
   "dependencies": {
+    "clone": "^2.1.1",
     "lru-cache": "^4.0.0"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
+    "eslint": "^4.15.0",
+    "eslint-config-transit": "^1.0.3",
+    "eslint-plugin-import": "^2.8.0",
     "prettier": "^1.10.2",
-    "standard": "^3.11.0",
     "tap": "^2.0.0"
   },
   "scripts": {
-    "lint": "prettier --single-quote --trailing-comma es5 '{src,test}/**/*.js' --write",
-    "test": "npm run lint && tap test/*.js --cov"
+    "format": "prettier --arrow-parens always --single-quote --trailing-comma es5 '{src,test}/**/*.js' --write",
+    "eslint": "eslint {src,test}/**/*.js",
+    "lint": "npm run format && npm run eslint",
+    "test": "npm run lint && ava test/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/isaacs/async-cache"
+    "url": "git://github.com/TransitApp/async-cache"
   },
   "keywords": [
     "async",
