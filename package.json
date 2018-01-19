@@ -10,12 +10,11 @@
     "src/AsyncCache.js"
   ],
   "dependencies": {
-    "clone": "^2.1.1",
     "lru-cache": "^4.0.0"
   },
   "devDependencies": {
     "ava": "^0.24.0",
-    "eslint": "^4.15.0",
+    "eslint": "^3.15.0",
     "eslint-config-transit": "^1.0.3",
     "eslint-plugin-import": "^2.8.0",
     "prettier": "^1.10.2",
