@@ -24,7 +24,7 @@
     "format": "prettier --arrow-parens always --single-quote --trailing-comma es5 '{src,test}/**/*.js' --write",
     "eslint": "eslint {src,test}/**/*.js",
     "lint": "npm run format && npm run eslint",
-    "release": "npm run test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
+    "release": "npm run test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish --acess public",
     "test": "npm run lint && ava test/"
   },
   "repository": {
