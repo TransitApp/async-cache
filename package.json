@@ -1,5 +1,5 @@
 {
-  "name": "async-cache",
+  "name": "@transit/async-cache",
   "version": "1.1.0",
   "description": "Cache your async lookups and don't fetch the same thing more than necessary.",
   "main": "src/AsyncCache.js",
@@ -24,6 +24,7 @@
     "format": "prettier --arrow-parens always --single-quote --trailing-comma es5 '{src,test}/**/*.js' --write",
     "eslint": "eslint {src,test}/**/*.js",
     "lint": "npm run format && npm run eslint",
+    "release": "npm run test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
     "test": "npm run lint && ava test/"
   },
   "repository": {
