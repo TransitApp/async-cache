@@ -11,13 +11,25 @@ class AsyncCache {
     opt.stale = false;
     opt.max = opt.max || 1000;
     opt.maxAge = opt.maxAge || 1000 * 60 * 10;
-
+    if (opt.loadFn) {
+      this._genericLoadFn = opt.loadFn;
+    }
     this._opt = opt;
     this._cache = new LRU(opt);
     this._loading = new Map();
   }
 
   get(key, loadFn) {
+    if (!loadFn) {
+      if (this._genericLoadFn) {
+        loadFn = this._genericLoadFn;
+      } else {
+        throw new Error(
+          'No load function. ' +
+            'You must provide a load function either at creation in opt.loadFn or as second argument during a value get'
+        );
+      }
+    }
     return new Promise((resolve) => {
       if (this._loading.get(key)) {
         return resolve(this._loading.get(key));
